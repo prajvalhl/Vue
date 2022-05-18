@@ -173,3 +173,43 @@
   ```html
   <h1>{{ myFunc1 }}</h1>
   ```
+
+### Lifecycle Hooks in VueJS
+
+- Refer the Vue documentation.
+
+## Vue CLI and GUI
+
+- First install Vue CLI using the following command.
+  ```
+  npm install -g @vue/cli
+  ```
+- Then, we need to install Vue using the following command.
+  ```
+  npm install vue@next
+  ```
+- Now, to create new Vue project, we can use the following command.
+  ```
+  vue create project_name
+  ```
+- We can also create Vue app using the below command.
+  ```
+  npm init vue@latest
+  ```
+- We can also create projects using Vue GUI and to access it, we can use the following command.
+  ```
+  vue ui
+  ```
+
+### Vue file structure breakdown
+
+- In Public folder, there's `index.html` which consists of an empty div with `#app`. All the Vue components are mounted onto this div #app.
+- Majority of the time, we'll be spending our time in `src` folder. Inside it we have `main.js` which does createApp() and injects `App.vue` and mounts it to the `#app` in `index.html`.
+- `App.vue` is where we write our code, here the basic structure is:
+  - template element - where we write the HTML.
+  - script element - where we write the JS.
+  - style element - where we wtite the CSS.
+
+## Conditionals in VueJS
+
+-
