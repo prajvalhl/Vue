@@ -212,4 +212,47 @@
 
 ## Conditionals in VueJS
 
--
+- We can use directives like `v-if`, `v-if-else`, and `v-else` to conditionally show or not show a componenet or an HTML element.
+
+## Components and third party libraries
+
+- In the modern world of React, Angular or Vue, `component` is the foundation of building different web sites or web frameworks or whatever you're designing.
+- To include third party libraries, use can include them in the `main.js` file and make use of `.use` to include them as shown below.
+
+  ```js
+  import VueSweetalert2 from "vue-sweetalert2";
+  import "sweetalert2/dist/sweetalert2.min.css";
+
+  const app = creatApp(App);
+  app.use(VueSweetalert2);
+  app.mount("#app");
+  ```
+
+- Whenever we're adding any component, we'll have to include in the export default of `App.vue` using the `components` property.
+  ```js
+  components: {
+    Icon;
+  }
+  ```
+- To have a prop, we should have a `props` property.
+  ```js
+  export default {
+    props: {
+      iconName: {
+        type: String, // makes sure only string is passed.
+        required: true, // makes sure props are required when the component is used.
+      },
+    },
+  };
+  ```
+- `Watcher` - we can put a watcher on a variable and if that thing changes, it'll notify you. Once we get the notification, we can run a method or something like that.
+- Using the property `watch`, inside we can give any variables to keep a watch on.
+  ```js
+  watch: {
+    someVariable: function(msg){
+      if(msg){
+        // call method to display popup
+      }
+    }
+  }
+  ```
