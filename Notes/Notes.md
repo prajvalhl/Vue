@@ -234,7 +234,7 @@
     Icon;
   }
   ```
-- To have a prop, we should have a `props` property.
+- `Props` - To have a prop, we should have a `props` property. It can be an array or object. At the time of calling the component, one can pass the prop.
   ```js
   export default {
     props: {
@@ -245,8 +245,9 @@
     },
   };
   ```
-- `Watcher` - we can put a watcher on a variable and if that thing changes, it'll notify you. Once we get the notification, we can run a method or something like that.
+- `Watcher` - It was added in Vue3 and we can put a watcher on a variable or array and if that thing changes, it'll notify you. Once we get the notification, we can run a method or something like that.
 - Using the property `watch`, inside we can give any variables to keep a watch on.
+- The watcher function's parameter get's the changed variable content which can be accessed using that variable name.
   ```js
   watch: {
     someVariable: function(msg){
@@ -255,4 +256,29 @@
       }
     }
   }
+  ```
+
+## Handling localstorage in VueJS
+
+- `Form` - One of the good things of forms in Vue is that - You don't have to say inside your script `preventDefault()`. Instead, we can add `@submit.prevent` attribute on the form itself as well as we can also provide name of the method which should run when the form submits.
+  ```html
+  <form @submit.prevent="onSubmit"></form>
+  ```
+- To do something when the component first mounts, we can use a lifecycle hook called `mounted()`. Here we can check if there's something in localStorage and grab it.
+  ```js
+  export default {
+    name: 'App',
+    data(){...},
+    methods: {...},
+    mounted() {
+      const data = JSON.parse(localStorage.getItem("@movies"));
+      if (data) {
+        try {
+          this.movies = data;
+        } catch (e) {
+          localStorage.removeItem("@movies");
+        }
+      }
+    },
+  };
   ```
