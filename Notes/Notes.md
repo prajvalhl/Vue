@@ -282,3 +282,32 @@
     },
   };
   ```
+
+## Handling API's in VueJS
+
+- Handling API's in Vue is similar to how we handle API's in vanilla JavaScript.
+- To make things easier, we can use `axios` for requesting API's.
+- We just need to install `axios`, then import it and can start using it.
+  ```js
+  import axios from "axios";
+  ```
+- We can use axios with `.then and .catch` block or we can use it along with `async and await`.
+  ```js
+  export default {
+    name: "App",
+    methods: {
+      fetchUser: async function () {
+        try {
+          const res = await axios.get("https://randomuser.me/api/");
+          this.user = res.data.results[0];
+        } catch (e) {
+          console.error(e);
+        }
+      },
+    },
+    mounted() {
+      this.fetchUser();
+    },
+  };
+  ```
+- We can use a lifecycle method `mounted()` to call the api when the component is first mounted.
