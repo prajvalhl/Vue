@@ -361,3 +361,5 @@
     },
   ];
   ```
+
+- When we include `Vuex`, there'll be extra folder called `store` which contains a `index.js` file. This is where all variables are stored, hence referred to as single source of truth.
