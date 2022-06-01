@@ -192,10 +192,6 @@
   ```
   vue create project_name
   ```
-- We can also create Vue app using the below command.
-  ```
-  npm init vue@latest
-  ```
 - We can also create projects using Vue GUI and to access it, we can use the following command.
   ```
   vue ui
