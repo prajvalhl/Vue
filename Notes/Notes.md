@@ -312,7 +312,7 @@
 
 - While creating the app, when asked to select a preset, we need to choose `Manual select features` and select `Router` for adding routing to the app, and select `Vuex` if you want to add state management to the app.
 - Next, hit `yes` when asked for `use history mode for router`.
-- Next choose everything default options till the app is created except for congig file where we choose `package.json`.
+- Next choose everything default options till the app is created except for config file where we choose `package.json`.
 - If we see the `main.js`, you can find something like this.
   ```js
   createApp(App).use(router).mount("#app");
