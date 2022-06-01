@@ -310,7 +310,9 @@
 
 ## Routing and State Management in VueJS
 
-- While creating the app, when asked to select a preset, we need to choose `Manual select features` and select `Router` for adding routing to the app, and select `Vuex` if you want to add state management to the app.
+#### Routing
+
+- While creating the app, when asked to select a preset, we need to choose `Manual select features` and select `Router` for adding routing to the app, and select `Vuex` if you want to add `state management` to the app.
 - Next, hit `yes` when asked for `use history mode for router`.
 - Next choose everything default options till the app is created except for config file where we choose `package.json`.
 - If we see the `main.js`, you can find something like this.
@@ -318,8 +320,8 @@
   createApp(App).use(router).mount("#app");
   ```
 - This means router has been injected as middleware and throught this middleware, the router keyword as going to be available anywhere in the app.
-- `Middleware` - Let's say you have a single web page and on that you have login page and this same page is used by both admin and user. Middleware helps in determining who is admin and user by providing additional functionality in-between whatever we want to do. Hence the name middleware.
-- We also notice `router-link` being used in `App.vue`
+- `Middleware` - Let's say you have a single web page and on that you have login page and this same page is used by both admin and user. Middleware helps in determining who is admin and user by providing additional functionality `in-between` whatever we want to do. Hence the name middleware.
+- We also notice `router-link` being used in `App.vue`. These are almost similar to links i.e `a href`.
 
   ```html
   <nav>
@@ -329,6 +331,8 @@
     <!-- different ways of navigating to a page -->
 
     <router-link :to="path: '/account'">Account</router-link>
+
+    <!-- using query params -->
     <router-link :to="{path: `/account/${course.id}`, query: {token: 'abc'}}"
       >Account</router-link
     >
@@ -337,7 +341,7 @@
   ```
 
 - As seen from the above, there are different ways of navigating to a page.
-- The actual routes are declared inside the router folder inside `index.js`.
+- The actual routes are declared inside the `router` folder inside `index.js`.
 
   ```js
   const routes = [
@@ -355,7 +359,24 @@
       component: () =>
         import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
     },
+    {
+      path: "/account/:id",
+      name: "account",
+      component: Account,
+    },
   ];
   ```
+
+- To access the query params, we can use route or router with $ sign prepended to it.
+
+  ```html
+  <h1>{{ $route.params.id }}</h1>
+
+  we can also access it using router
+
+  <h1>{{ $router }}</h1>
+  ```
+
+#### State Management
 
 - When we include `Vuex`, there'll be extra folder called `store` which contains a `index.js` file. This is where all variables are stored, hence referred to as single source of truth.
