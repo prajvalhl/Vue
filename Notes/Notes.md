@@ -1,4 +1,4 @@
-# Vue JS
+# Vue JS / Vue 3
 
 ## Getting Started with Vue JS
 
